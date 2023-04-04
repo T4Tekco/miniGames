@@ -1,5 +1,5 @@
 <resources>
-<!--    for navigation arguments-->
+    <!--    for navigation arguments-->
     <string name="nav_arg_to_pie_int" translatable="false">nav_arg_to_pie_int</string>
     <string name="nav_arg_to_pie_string" translatable="false">nav_arg_to_pie_string</string>
 
