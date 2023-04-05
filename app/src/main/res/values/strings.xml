@@ -10,4 +10,14 @@
     <string name="nav_arg_to_nougat_string" translatable="false">nav_arg_to_nougat_string</string>
 
     <string name="app_name">t4tek</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="level">LEVEL</string>
+    <string name="_600">/600</string>
+    <string name="select_game_type">Select game type</string>
+    <string name="normal_mode">Normal Mode</string>
+    <string name="challenge_mode">Challenge Mode</string>
+    <string name="game_number">GAME \n NUMBER:</string>
+    <string name="best_time">BEST TIME</string>
+    <string name="result">RESULT</string>
 </resources>
