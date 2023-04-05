@@ -25,6 +25,9 @@
             android:name="@string/nav_arg_to_pie_string"
             android:defaultValue=""
             app:argType="string" />
+        <action
+            android:id="@+id/action_pieFragment_to_listGameFragment"
+            app:destination="@id/listGameFragment" />
     </fragment>
     <fragment
         android:id="@+id/oreoFragment"
@@ -62,4 +65,9 @@
             android:id="@+id/action_nougatFragment_to_pieFragment"
             app:destination="@id/pieFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/listGameFragment"
+        android:name="com.android.t4tek.app.braingame.list_game.ListGameFragment"
+        android:label="fragment_list_game"
+        tools:layout="@layout/fragment_list_game" />
 </navigation>
