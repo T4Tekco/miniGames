@@ -10,4 +10,16 @@
     <string name="nav_arg_to_nougat_string" translatable="false">nav_arg_to_nougat_string</string>
 
     <string name="app_name">t4tek</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="_1">1</string>
+    <string name="_2">2</string>
+    <string name="_4">4</string>
+    <string name="_5">5</string>
+    <string name="_6">6</string>
+    <string name="_7">7</string>
+    <string name="_8">8</string>
+    <string name="_9">9</string>
+    <string name="del">Del</string>
+    <string name="retry">Retry</string>
 </resources>
