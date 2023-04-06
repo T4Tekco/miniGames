@@ -1,20 +1,17 @@
 package com.android.t4tek.app.braingame.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.Adapter
-import com.android.t4tek.R
 import com.android.t4tek.app.braingame.model.ListGame
 import com.android.t4tek.databinding.ItemListGameBinding
 
 class ListGameAdapter : RecyclerView.Adapter<ListGameAdapter.LGViewHolder>() {
 
-    private var listGame : List<ListGame>? = null
+    private lateinit var listGame : List<ListGame>
 
-    fun getListGame(view: List<ListGame>){
-        this.listGame = view
+    fun getListGame(listGame: List<ListGame>){
+        this.listGame = listGame
     }
 
     class LGViewHolder(private val binding : ItemListGameBinding):RecyclerView.ViewHolder(binding.root) {
@@ -27,7 +24,6 @@ class ListGameAdapter : RecyclerView.Adapter<ListGameAdapter.LGViewHolder>() {
                 it.starThree.setImageResource(list.starThree)
             }
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LGViewHolder {
@@ -36,12 +32,10 @@ class ListGameAdapter : RecyclerView.Adapter<ListGameAdapter.LGViewHolder>() {
     }
 
     override fun getItemCount(): Int {
-        return if(listGame == null){
-            0
-        }else listGame!!.size
+        return listGame.size
     }
 
     override fun onBindViewHolder(holder: LGViewHolder, position: Int) {
-        holder.bin(listGame!![position])
+        holder.bin(listGame[position])
     }
 }

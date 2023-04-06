@@ -90,7 +90,7 @@ class PieFragment : BaseFragment() {
                     getString(R.string.nav_arg_to_nougat_int) to 2,
                     getString(R.string.nav_arg_to_nougat_string) to "from PieFragment to Nougat",
                 )
-                findNavController().navigate(R.id.action_pieFragment_to_nougatFragment, bundle)
+                findNavController().navigate(R.id.action_pieFragment_to_homeFragment, bundle)
             }
         }
     }
