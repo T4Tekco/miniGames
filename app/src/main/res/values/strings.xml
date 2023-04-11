@@ -24,4 +24,8 @@
     <string name="game_number">GAME \n NUMBER:</string>
     <string name="best_time">BEST TIME</string>
     <string name="result">RESULT</string>
+    <string name="Gnumber">GAME NUMBER:</string>
+    <string name="best_result">Best Result:</string>
+    <string name="view_you_answer">View you answer</string>
+    <string name="play">Play</string>
 </resources>
