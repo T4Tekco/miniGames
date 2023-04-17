@@ -1,13 +1,9 @@
 package com.android.t4tek.app.braingame.list_game
 
-import android.app.Activity
-import android.app.AlertDialog
 import android.app.Dialog
-import android.content.DialogInterface
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.Gravity
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,7 +13,10 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.ui.graphics.Color
+import androidx.core.content.ContextCompat
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.t4tek.R
@@ -30,7 +29,8 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class ListGameFragment : BaseFragment() {
 
-    private var binding : FragmentListGameBinding? = null
+    private var _binding : FragmentListGameBinding? = null
+    private val binding get() = _binding!!
     private lateinit var adapter : ListGameAdapter
     private lateinit var listGame : ArrayList<ListGame>
 
@@ -46,34 +46,42 @@ class ListGameFragment : BaseFragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentListGameBinding.inflate(layoutInflater)
-        return binding!!.root
+        _binding = FragmentListGameBinding.inflate(layoutInflater)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        customToolBar()
         initAdapter()
+    }
+
+    private fun customToolBar(){
+
+        val activity: AppCompatActivity = activity as AppCompatActivity
+//        val toolbar = binding.tbrListGame
+//        activity.setSupportActionBar(toolbar)
+        activity.supportActionBar?.let { actionBar ->
+            actionBar.title = ""
+        }
+        binding.tbnBackLG.setOnClickListener{
+            findNavController().navigate(R.id.action_listGameFragment_to_homeFragment)
+        }
     }
 
     private fun initAdapter() {
         loadListGame()
         val linearLayoutManager = LinearLayoutManager(context,RecyclerView.VERTICAL,false)
-        binding?.rvListGame?.layoutManager = linearLayoutManager
+        binding.rvListGame.layoutManager = linearLayoutManager
         adapter = ListGameAdapter()
         adapter.setHasStableIds(true)
         adapter.getListGame(listGame, object : ListGameAdapter.onItemClickListener{
             override fun onItemClick(position: Int) {
-//                val builder = AlertDialog.Builder(context)
-//                builder.setTitle("GAME NUMBER: " + (position + 1))
-//                    .setMessage("Tiếp tục")
-//                    .setCancelable(true)
-//                    .setPositiveButton("Yes") { _, _ -> activity?.finish() }
-//                    .setNegativeButton("No", DialogInterface.OnClickListener { dialog, which -> dialog.cancel() })
-//                    .show()
                 openDialog(listGame,position,Gravity.CENTER)
             }
         })
-        binding?.rvListGame?.adapter = adapter
+        binding.rvListGame.adapter = adapter
     }
 
     private fun openDialog(listgame: List<ListGame>,position: Int,gravity: Int){
@@ -126,29 +134,6 @@ class ListGameFragment : BaseFragment() {
         listGame.add(ListGame(8,"00:00",0,starBlack,starBlack,starBlack))
         listGame.add(ListGame(9,"00:00",0,starBlack,starBlack,starBlack))
         listGame.add(ListGame(10,"00:00",0,starBlack,starBlack,starBlack))
-
-//        id = arrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
-//
-//        time = arrayOf(
-//            "01:00","00:05","00:30","00:10","00:15","00:35","01:00","01:00","01:00","01:00"
-//        )
-//
-//        starOne = arrayOf(
-//            starBlack,starYellow,starYellow,starYellow,starYellow,starBlack,starBlack,starBlack,starBlack,starBlack
-//        )
-//
-//        starTwo = arrayOf(
-//            starBlack,starYellow,starYellow,starYellow,starYellow,starBlack,starBlack,starBlack,starBlack,starBlack
-//        )
-//
-//        starThree = arrayOf(
-//            starBlack,starYellow,starBlack,starYellow,starBlack,starBlack,starBlack,starBlack,starBlack,starBlack
-//        )
-//
-//        for (i in id.indices){
-//            val list = ListGame(id[i],time[i],starOne[i],starTwo[i],starThree[i])
-//            listGame.add(list)
-//        }
     }
 
 }

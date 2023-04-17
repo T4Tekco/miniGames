@@ -7,6 +7,23 @@
     tools:context=".app.braingame.list_game.ListGameFragment"
     tools:ignore="MissingConstraints">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tbrListGame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <ImageButton
+            android:id="@+id/tbnBackLG"
+            android:background="@drawable/ic_border_cricle"
+            android:src="@drawable/ic_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </androidx.appcompat.widget.Toolbar>
+
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
@@ -15,7 +32,7 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/tbrListGame">
 
         <TextView
             android:layout_width="wrap_content"
@@ -39,8 +56,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_weight="1"
             android:layout_marginRight="20dp"
+            android:layout_weight="1"
             android:gravity="right"
             android:text="@string/result"
             android:textColor="#000000"

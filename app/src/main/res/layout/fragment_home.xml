@@ -23,9 +23,9 @@
 
         <ImageView
             android:id="@+id/imgUser"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_launcher_background" />
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_people" />
 
         <LinearLayout
             android:layout_width="0dp"
@@ -115,30 +115,43 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
-    <Spinner
-        android:id="@+id/spType"
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="20dp"
         android:layout_marginRight="50dp"
+        app:endIconDrawable="@drawable/baseline_arrow_drop_down_24"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvText" />
+        app:layout_constraintTop_toBottomOf="@+id/tvText">
+
+        <AutoCompleteTextView
+            android:id="@+id/ddmGameType"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="none"
+            android:text="Test Your Memory"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            tools:ignore="LabelFor" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/btnNormal"
-        android:layout_marginRight="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginBottom="25dp"
-        android:padding="10dp"
-        android:text="@string/normal_mode"
-        android:textSize="25sp"
-        android:textColor="#000000"
-        android:background="#D9D9D9"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="25dp"
+        android:background="#D9D9D9"
+        android:padding="10dp"
+        android:text="@string/normal_mode"
+        android:textColor="#000000"
+        android:textSize="25sp"
         app:layout_constraintBottom_toTopOf="@+id/btnChallenge"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -146,16 +159,16 @@
 
     <Button
         android:id="@+id/btnChallenge"
-        android:layout_marginRight="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginBottom="40dp"
-        android:padding="10dp"
-        android:textSize="25sp"
-        android:textColor="#000000"
-        android:background="#D9D9D9"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="40dp"
+        android:background="#D9D9D9"
+        android:padding="10dp"
         android:text="@string/challenge_mode"
+        android:textColor="#000000"
+        android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
