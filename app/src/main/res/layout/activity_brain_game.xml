@@ -5,5 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".app.braingame.BrainGameActivity">
+<FrameLayout
+    android:id="@+id/frm"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
+</FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

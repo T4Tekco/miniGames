@@ -1,60 +1,105 @@
 package com.android.t4tek.app.braingame.mathgame
 
+import android.annotation.SuppressLint
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import androidx.fragment.app.Fragment
 import com.android.t4tek.R
+import com.android.t4tek.databinding.FragmentMathGameBinding
+import com.android.t4tek.databinding.FragmentPieBinding
+import timber.log.Timber
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [MathGameFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class MathGameFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
+    private var binding: FragmentMathGameBinding? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_math_game, container, false)
+        binding = FragmentMathGameBinding.inflate(layoutInflater)
+        return binding?.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment MathGameFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            MathGameFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setSpinner()
+        onClick()
     }
+
+    private fun onClick() {
+     binding?.let {
+
+         it.btns1.setOnClickListener{
+             val pt = binding?.txtkq?.text.toString() + "1"
+             binding?.txtkq?.setText(pt)
+         }
+
+         it.btns2.setOnClickListener{
+             val pt = binding?.txtkq?.text.toString() + "2"
+             binding?.txtkq?.setText(pt)
+         }
+
+         it.btns3.setOnClickListener{
+             val pt = binding?.txtkq?.text.toString() + "3"
+             binding?.txtkq?.setText(pt)
+         }
+
+         it.btns4.setOnClickListener{
+             val pt = binding?.txtkq?.text.toString() + "4"
+             binding?.txtkq?.setText(pt)
+         }
+         it.btns5.setOnClickListener{
+             val pt = binding?.txtkq?.text.toString() + "5"
+             binding?.txtkq?.setText(pt)
+         }
+         it.btns6.setOnClickListener{
+             val pt = binding?.txtkq?.text.toString() + "6"
+             binding?.txtkq?.setText(pt)
+         }
+
+         it.btns7.setOnClickListener{
+             val pt = binding?.txtkq?.text.toString() + "7"
+             binding?.txtkq?.setText(pt)
+         }
+         it.btns8.setOnClickListener{
+             val pt = binding?.txtkq?.text.toString() + "8"
+             binding?.txtkq?.setText(pt)
+         }
+         it.btns9.setOnClickListener{
+             val pt = binding?.txtkq?.text.toString() + "9"
+             binding?.txtkq?.setText(pt)
+         }
+         it.btns0.setOnClickListener{
+             val pt = binding?.txtkq?.text.toString() + "0"
+             binding?.txtkq?.setText(pt)
+         }
+     }
+
+    }
+
+    private fun setSpinner() {
+        val list = resources.getStringArray(R.array.number)
+        ArrayAdapter.createFromResource(requireContext(), R.array.number, android.R.layout.simple_spinner_item)
+            .also {adapter -> adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            binding?.spinner?.adapter=adapter
+        }
+        binding?.spinner?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(p0: AdapterView<*>?,
+                                        p1: View?,
+                                        p2: Int,
+                                        p3: Long) {
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+                TODO("Not yet implemented")
+            }
+
+        }
+    }
+
+
+
 }
