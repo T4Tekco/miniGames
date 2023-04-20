@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/login"
     tools:context=".app.braingame.setting.SettingFragment">
 
     <TextView
@@ -74,9 +75,11 @@
         android:id="@+id/btnLogOut"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
         android:layout_marginTop="20dp"
         android:layout_marginStart="50dp"
         android:layout_marginEnd="50dp"
+        android:background="#E50A0A"
         android:text="Log Out"
         app:layout_constraintTop_toBottomOf="@+id/spLanguageSetting" />
 
@@ -84,9 +87,11 @@
         android:id="@+id/btnAboutUs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
         android:layout_marginTop="20dp"
         android:layout_marginStart="50dp"
         android:layout_marginEnd="50dp"
+        android:background="#EC7BA1"
         android:text="About Us"
         app:layout_constraintTop_toBottomOf="@+id/btnLogOut" />
 </androidx.constraintlayout.widget.ConstraintLayout>

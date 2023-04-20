@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/login"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".app.braingame.signup.SignUpFragment">
 
@@ -28,9 +29,12 @@
 
     <EditText
         android:id="@+id/edtEmail"
-        android:layout_width="375dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:padding="10dp"
         android:background="@drawable/custom_input"
         android:hint="Enter Your Email"
         android:paddingLeft="10dp"
@@ -40,12 +44,14 @@
 
     <EditText
         android:id="@+id/edtUer"
-        android:layout_width="375dp"
-        android:layout_height="49dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
+        android:padding="10dp"
         android:background="@drawable/custom_input"
         android:hint="Username"
-        android:paddingLeft="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtEmail"
@@ -53,24 +59,28 @@
 
     <EditText
         android:id="@+id/edtPass"
-        android:layout_width="375dp"
-        android:layout_height="49dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:padding="10dp"
         android:background="@drawable/custom_input"
         android:hint="Password"
-        android:paddingLeft="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtUer" />
 
     <EditText
         android:id="@+id/edtConfirmPass"
-        android:layout_width="375dp"
-        android:layout_height="49dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
         android:background="@drawable/custom_input"
         android:hint="Confirm Password"
-        android:paddingLeft="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtPass"

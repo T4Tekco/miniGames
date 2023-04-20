@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/login"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".app.braingame.login.ChangePassFragment">
 
@@ -28,9 +29,12 @@
 
     <EditText
         android:id="@+id/edtPhone"
-        android:layout_width="375dp"
-        android:layout_height="49dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:padding="10dp"
         android:background="@drawable/custom_input"
         android:hint="Enter Your Phone Number"
         android:inputType="number"
@@ -53,8 +57,11 @@
 
     <EditText
         android:id="@+id/edtVerifyCode"
-        android:layout_width="375dp"
-        android:layout_height="49dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/custom_input"
         android:hint="Verify-Code"
@@ -75,24 +82,28 @@
 
     <EditText
         android:id="@+id/edtNewPass"
-        android:layout_width="375dp"
-        android:layout_height="49dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/custom_input"
         android:hint="New Password"
-        android:paddingLeft="10dp"
+        android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtResendCode" />
 
     <EditText
         android:id="@+id/edtConfirmPassword"
-        android:layout_width="375dp"
-        android:layout_height="49dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:padding="10dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
         android:background="@drawable/custom_input"
         android:hint="Confirm Password"
-        android:paddingLeft="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtNewPass" />
