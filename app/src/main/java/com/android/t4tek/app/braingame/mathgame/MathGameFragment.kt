@@ -76,8 +76,10 @@ class MathGameFragment : Fragment() {
              val pt = binding?.txtkq?.text.toString() + "0"
              binding?.txtkq?.setText(pt)
          }
+         it.btnDel.setOnClickListener {
+             binding?.txtkq?.setText(null)
+         }
      }
-
     }
 
     private fun setSpinner() {
