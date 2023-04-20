@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/toan_hoc"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".app.braingame.start.StartFragment">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        app:cardCornerRadius="35dp"
+        android:background="#A19A9A"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_goneMarginTop="20dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="10dp">
+
+        <ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/braingame" />
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/btnStart"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Start!"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+    <TextView
+        android:id="@+id/txtTextView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Welcome Back, Thanh!"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnStart"
+        tools:ignore="HardcodedText,MissingConstraints" />
+
+    <TextView
+        android:id="@+id/txtNotYou"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Not you? Top here"
+        android:textColor="#C62828"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@+id/txtTextView1" />
+
+    <TextView
+        android:id="@+id/txtTextView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text=" @T4Tek"
+        android:textAlignment="center"
+        android:textColor="#C62828"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtNotYou"
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout_editor_absoluteX="0dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

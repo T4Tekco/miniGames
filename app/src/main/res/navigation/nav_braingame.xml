@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_braingame"
+    app:startDestination="@id/startFragment">
+
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.android.t4tek.app.braingame.start.StartFragment"
+        android:label="fragment_start"
+        tools:layout="@layout/fragment_start" >
+        <action
+            android:id="@+id/action_startFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.android.t4tek.app.braingame.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_changePassFragment"
+            app:destination="@id/changePassFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_startFragment"
+            app:destination="@id/startFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/changePassFragment"
+        android:name="com.android.t4tek.app.braingame.login.ChangePassFragment"
+        android:label="fragment_change_pass"
+        tools:layout="@layout/fragment_change_pass" >
+        <action
+            android:id="@+id/action_changePassFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.android.t4tek.app.braingame.signup.SignUpFragment"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/fragment_sign_up" >
+        <action
+            android:id="@+id/action_signUpFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+</navigation>

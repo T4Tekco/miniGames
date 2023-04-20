@@ -1,5 +1,5 @@
 <resources>
-<!--    for navigation arguments-->
+    <!--    for navigation arguments-->
     <string name="nav_arg_to_pie_int" translatable="false">nav_arg_to_pie_int</string>
     <string name="nav_arg_to_pie_string" translatable="false">nav_arg_to_pie_string</string>
 
@@ -9,5 +9,12 @@
     <string name="nav_arg_to_nougat_int" translatable="false">nav_arg_to_nougat_int</string>
     <string name="nav_arg_to_nougat_string" translatable="false">nav_arg_to_nougat_string</string>
 
-    <string name="app_name">t4tek</string>
+    <string name="app_name">BrainGame</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="ngonngu">
+        <item>English</item>
+        <item>VietNam</item>
+    </string-array>
 </resources>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login"
+    tools:context=".app.braingame.setting.SettingFragment">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginTop="20dp"
+        android:text="Sound Setting"
+        android:textAlignment="textStart"
+        android:textSize="22sp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="50dp"
+        tools:layout_editor_absoluteY="68dp" />
+
+    <Spinner
+        android:id="@+id/spSoundSetting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"/>
+
+
+    <TextView
+        android:id="@+id/txtFontSetting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginTop="20dp"
+        android:text="Font Setting"
+        android:textAlignment="textStart"
+        android:textSize="22sp"
+        app:layout_constraintTop_toBottomOf="@+id/spSoundSetting" />
+
+    <Spinner
+        android:id="@+id/spFontSetting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        app:layout_constraintTop_toBottomOf="@+id/txtFontSetting" />
+
+    <TextView
+        android:id="@+id/txtLanguageSetting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginTop="20dp"
+        android:text="Language Setting"
+        android:textAlignment="textStart"
+        android:textSize="22sp"
+        app:layout_constraintTop_toBottomOf="@+id/spFontSetting" />
+
+    <Spinner
+        android:id="@+id/spLanguageSetting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        app:layout_constraintTop_toBottomOf="@+id/txtLanguageSetting" />
+
+    <Button
+        android:id="@+id/btnLogOut"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:background="#E50A0A"
+        android:text="Log Out"
+        app:layout_constraintTop_toBottomOf="@+id/spLanguageSetting" />
+
+    <Button
+        android:id="@+id/btnAboutUs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:background="#EC7BA1"
+        android:text="About Us"
+        app:layout_constraintTop_toBottomOf="@+id/btnLogOut" />
+</androidx.constraintlayout.widget.ConstraintLayout>
