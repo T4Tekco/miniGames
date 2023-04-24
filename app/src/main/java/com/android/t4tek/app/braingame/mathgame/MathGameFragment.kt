@@ -10,18 +10,18 @@ import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import com.android.t4tek.R
 import com.android.t4tek.databinding.FragmentMathGameBinding
-import org.json.JSONObject
 
 class MathGameFragment : Fragment() {
     private var binding: FragmentMathGameBinding? = null
-
     private lateinit var countDownTimer: CountDownTimer
     private var timeLeftInMillis: Long = 60000 // 1 minute
+
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentMathGameBinding.inflate(layoutInflater)
+        binding = FragmentMathGameBinding.inflate(inflater, container, false)
         return binding?.root
     }
 
@@ -43,7 +43,6 @@ class MathGameFragment : Fragment() {
             }
         }.start()
     }
-
     private fun updateCountDownText() {
         val minutes = (timeLeftInMillis / 1000) / 60
         val seconds = (timeLeftInMillis / 1000) % 60
@@ -52,9 +51,10 @@ class MathGameFragment : Fragment() {
         binding?.btnTimer?.text = timeLeftFormatted
     }
 
-    private fun onClick() {
-     binding?.let {
 
+    private fun onClick() {
+
+     binding?.let {
          it.btns1.setOnClickListener{
              val pt = binding?.txtkq?.text.toString() + "1"
              binding?.txtkq?.text = pt
@@ -106,7 +106,7 @@ class MathGameFragment : Fragment() {
     }
 
     private fun setSpinner() {
-        val list = resources.getStringArray(R.array.number)
+  //     val list = resources.getStringArray(R.array.number)
         ArrayAdapter.createFromResource(requireContext(), R.array.number, android.R.layout.simple_spinner_item)
             .also {adapter -> adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             binding?.spinner?.adapter=adapter
@@ -119,7 +119,6 @@ class MathGameFragment : Fragment() {
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
-                TODO("Not yet implemented")
             }
         }
     }

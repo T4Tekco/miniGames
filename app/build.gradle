@@ -40,7 +40,9 @@ android {
             applicationIdSuffix ".nightly"
             versionNameSuffix "-nightly"
 
-            buildConfigField "String", "API_URL", "\"http://api.open-notify.org\""
+            buildConfigField "String", "API_URL", "\"https://api.tools.bizinfo.one\""
+//            buildConfigField "String", "API_URL", "\"http://api.open-notify.org\""
+
         }
         staging {
             applicationIdSuffix ".staging"
