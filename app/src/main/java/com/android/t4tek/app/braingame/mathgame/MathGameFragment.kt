@@ -10,6 +10,12 @@ import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import com.android.t4tek.R
 import com.android.t4tek.databinding.FragmentMathGameBinding
+import com.android.t4tek.domain.json_model.JsonQuestionListGame
+import com.android.t4tek.domain.json_model.QuestionList
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+import okhttp3.*
+import java.io.IOException
 
 class MathGameFragment : Fragment() {
     private var binding: FragmentMathGameBinding? = null
@@ -27,6 +33,36 @@ class MathGameFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding = FragmentMathGameBinding.bind(view)
+
+        val client = OkHttpClient.Builder().build()
+        val request = Request.Builder()
+            .url("https://api.tools.bizinfo.one/question.json")
+            .build()
+        client.newCall(request).enqueue(object : Callback{
+            override fun onFailure(call: Call, e: IOException) {
+                //xử lý lỗi
+            }
+
+            override fun onResponse(call: Call, response: Response) {
+                val json = response.body?.string()
+                val moshi = Moshi.Builder()
+                    .add(KotlinJsonAdapterFactory())
+                    .build()
+                val adapter = moshi.adapter(QuestionList::class.java)
+                val questionList = adapter.fromJson(json!!)
+
+                activity?.runOnUiThread{
+//                    binding?.txtnumber1?.text = questionList?.number_1.toString()
+//                    binding?.txtnumber2?.text = questionList?.number_2.toString()
+                    binding?.txtnumber1?.text = questionList!!.questions[0].list_question[0].number_1.toString()
+                    binding?.txtnumber2?.text = questionList.questions[0].list_question[0].number_2.toString()
+                }
+            }
+
+
+        })
+
         setSpinner()
         onClick()
         startCountDown()
@@ -50,6 +86,7 @@ class MathGameFragment : Fragment() {
         val timeLeftFormatted = String.format("%02d:%02d", minutes, seconds)
         binding?.btnTimer?.text = timeLeftFormatted
     }
+
 
 
     private fun onClick() {
@@ -117,7 +154,6 @@ class MathGameFragment : Fragment() {
                                         p2: Int,
                                         p3: Long) {
             }
-
             override fun onNothingSelected(p0: AdapterView<*>?) {
             }
         }
