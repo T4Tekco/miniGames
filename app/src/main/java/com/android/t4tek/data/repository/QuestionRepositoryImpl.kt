@@ -16,7 +16,7 @@ class QuestionRepositoryImpl @Inject constructor(
 ) : QuestionRepository, BaseRepository() {
     override suspend fun getQuestion(): DataResult<List<JsonQuestionListGame>> {
         try {
-            val response = apiHelper.getQuestion()
+            val response = apiHelper.getUsers()
             if(response.isSuccessful){
                 val questionResponse = response.body() as QuestionResponse
                 return DataResult.resultSuccess(questionResponse.jsonQuestionListGame)
