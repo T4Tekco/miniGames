@@ -29,14 +29,20 @@
             android:layout_height="60dp"
             android:textColor="@color/white"
             android:layout_weight="1"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textSize="20sp"
             android:background="@drawable/custom_duongvien"
             android:text="" />
 
         <TextView
-            android:id="@+id/txtoperator"
+            android:id="@+id/txt_operator"
             android:layout_width="8dp"
             android:layout_height="30dp"
             android:layout_weight="1"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:gravity="center"
             android:background="@drawable/custom_duongvien"
             android:text="" />
 
@@ -45,6 +51,9 @@
             android:layout_width="40dp"
             android:layout_height="60dp"
             android:layout_weight="1"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:gravity="center"
             android:textColor="@color/white"
             android:background="@drawable/custom_duongvien"
             android:text="" />

@@ -1,4 +1,6 @@
+
 package com.android.t4tek.app.braingame.mathgame
+
 
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -37,7 +39,7 @@ class MathGameFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentMathGameBinding.bind(view)
 
-        var currentPosition = 0 // vị trí hiện tại của câu hỏi trong JSON
+        var currentPosition = 1 // vị trí hiện tại của câu hỏi trong JSON
         var questionList: QuestionList? = null // danh sách câu hỏi lấy từ JSON
         val client = OkHttpClient.Builder().build()
         val request = Request.Builder()
@@ -67,20 +69,24 @@ class MathGameFragment : Fragment() {
 
 
                 activity?.runOnUiThread{
-                   binding?.txtnumber1?.text = questionList!!.questions[currentPosition].list_question[0].number_1.toString()
-                   binding?.txtoperator?.text=questionList.questions[currentPosition].list_question[0].operator
-                   binding?.txtnumber2?.text = questionList.questions[currentPosition].list_question[0].number_2.toString()
+                   binding?.txtnumber1?.text = questionList!!.questions[0].list_question[currentPosition].number_1.toString()
+                   binding?.txtOperator?.text=questionList.questions[0].list_question[currentPosition].operator
+                   binding?.txtnumber2?.text =  questionList!!.questions[0].list_question[currentPosition].number_2.toString()
                }
                 binding?.btnOK?.setOnClickListener {
                     currentPosition++
                 // tăng vị trí hiện tại lên 1 để lấy câu hỏi tiếp theo trong JSON
-                    binding?.txtnumber1?.text = questionList!!.questions[currentPosition].list_question[0].number_1.toString()
-                    binding?.txtoperator?.text=questionList.questions[currentPosition].list_question[0].operator
-                    binding?.txtnumber2?.text = questionList.questions[currentPosition].list_question[0].number_2.toString()
-
+                    if (questionList!!.questions[0].list_question[currentPosition].id == currentPosition+1) {
+                        binding?.txtnumber1?.text =
+                            questionList!!.questions[0].list_question[currentPosition].number_1.toString()
+                        binding?.txtOperator?.text =
+                            questionList!!.questions[0].list_question[currentPosition].operator
+                        binding?.txtnumber2?.text =
+                            questionList!!.questions[0].list_question[currentPosition].number_2.toString()
+                    }
 //                    // Gửi lại request để lấy JSON mới nếu đã lấy hết các câu hỏi trong JSON
-                    if (currentPosition >= questionList!!.questions.size) {
-                        currentPosition = 0 // trở lại câu hỏi đầu tiên
+                    if (currentPosition >= questionList!!.questions[0].list_question.size) {
+                        currentPosition = 1 // trở lại câu hỏi đầu tiên
                         Toast.makeText(requireContext(), "Đã lấy hết dữ liệu từ JSON", Toast.LENGTH_SHORT).show()
                     }
 
@@ -92,11 +98,10 @@ class MathGameFragment : Fragment() {
 //                    binding?.txtnumber1?.text = question.number_1.toString()
 //                    binding?.txtoperator?.text = question.operator
 //                    binding?.txtnumber2?.text = question.number_2.toString()
+                    binding?.txtkq?.text = null
                 }
-
             }
         })
-
         setSpinner()
         onClick()
         startCountDown()
@@ -131,28 +136,58 @@ class MathGameFragment : Fragment() {
     }
 
     private fun onClick() {
-        val numberButtons = listOf(
-            binding?.btns1, binding?.btns2, binding?.btnNumber3,
-            binding?.btnNumber4, binding?.btns5, binding?.btns6,
-            binding?.btns7, binding?.btns8, binding?.btns9, binding?.btns0
-        )
 
-        numberButtons.forEachIndexed { index, button ->
-            button?.setOnClickListener {
-                val currentText = binding?.txtkq?.text.toString()
-                val newText = "$currentText$index"
-                binding?.txtkq?.text = newText
+        binding?.let {
+
+            it.btns1.setOnClickListener{
+                val pt = binding?.txtkq?.text.toString() + "1"
+                binding?.txtkq?.text = pt
+            }
+
+            it.btns2.setOnClickListener{
+                val pt = binding?.txtkq?.text.toString() + "2"
+                binding?.txtkq?.text = pt
+            }
+
+            it.btnNumber3.setOnClickListener{
+                val pt = binding?.txtkq?.text.toString() + "3"
+                binding?.txtkq?.text = pt
+            }
+
+            it.btnNumber4.setOnClickListener{
+                val pt = binding?.txtkq?.text.toString() + "4"
+                binding?.txtkq?.text = pt
+            }
+            it.btns5.setOnClickListener{
+                val pt = binding?.txtkq?.text.toString() + "5"
+                binding?.txtkq?.setText(pt)
+            }
+            it.btns6.setOnClickListener{
+                val pt = binding?.txtkq?.text.toString() + "6"
+                binding?.txtkq?.setText(pt)
+            }
+
+            it.btns7.setOnClickListener{
+                val pt = binding?.txtkq?.text.toString() + "7"
+                binding?.txtkq?.text = pt
+            }
+            it.btns8.setOnClickListener{
+                val pt = binding?.txtkq?.text.toString() + "8"
+                binding?.txtkq?.setText(pt)
+            }
+            it.btns9.setOnClickListener{
+                val pt = binding?.txtkq?.text.toString() + "9"
+                binding?.txtkq?.setText(pt)
+            }
+            it.btns0.setOnClickListener{
+                val pt = binding?.txtkq?.text.toString() + "0"
+                binding?.txtkq?.setText(pt)
+            }
+            it.btnDel.setOnClickListener {
+                binding?.txtkq?.setText(null)
             }
         }
-
-        binding?.btnDel?.setOnClickListener {
-            binding?.txtkq?.text = null
-        }
-        binding?.btnReset?.setOnClickListener {
-            resetScreen()
-        }
     }
-
 
     private fun setSpinner() {
   //     val list = resources.getStringArray(R.array.number)

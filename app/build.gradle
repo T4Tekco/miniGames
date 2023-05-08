@@ -82,11 +82,11 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_ktx"
     //noinspection GradleDependency
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_ktx"
-    implementation "androidx.activity:activity-ktx:1.7.0"
+    implementation "androidx.activity:activity-ktx:1.7.1"
 
     implementation "androidx.core:core-ktx:1.10.0"
     implementation "androidx.collection:collection-ktx:1.2.0"
-    implementation "androidx.fragment:fragment-ktx:1.5.6"
+    implementation "androidx.fragment:fragment-ktx:1.5.7"
     //dagger hilt
     def version_dagger_hilt = "2.44.2"
     implementation "com.google.dagger:hilt-android:$version_dagger_hilt"
