@@ -1,6 +1,7 @@
 package com.android.t4tek.app.braingame.list_game
 
 import android.app.Dialog
+import android.content.Intent
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.Gravity
@@ -21,6 +22,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.t4tek.R
 import com.android.t4tek.app.base.BaseFragment
+import com.android.t4tek.app.braingame.BrainGameActivity
 import com.android.t4tek.app.braingame.adapter.ListGameAdapter
 import com.android.t4tek.app.braingame.model.ListGame
 import com.android.t4tek.databinding.FragmentListGameBinding
@@ -111,7 +113,9 @@ class ListGameFragment : BaseFragment() {
             Toast.makeText(context,"View",Toast.LENGTH_SHORT).show()
         }
         btnPlay.setOnClickListener {
-            Toast.makeText(context,"Play",Toast.LENGTH_SHORT).show()
+
+            startActivity(Intent(requireContext(), BrainGameActivity::class.java))
+
         }
         btnExit.setOnClickListener {
             Toast.makeText(context,"Close",Toast.LENGTH_SHORT).show()

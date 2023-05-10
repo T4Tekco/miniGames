@@ -1,3 +1,4 @@
+
 package com.android.t4tek.domain.json_model
 
 import com.squareup.moshi.Json
@@ -9,3 +10,4 @@ data class JsonQuestionListGame(
     @Json(name = "operator") val operator: String,
     @Json(name = "result") val result: Int
 )
+

@@ -38,26 +38,47 @@ class HomeFragment : Fragment() {
     }
 
     private fun setupTypeGame() {
-        val list = ArrayList<String>()
-        list.add("Test Your Memory")
-        list.add("Test Your Reflex")
-        val adapterArray = ArrayAdapter(requireContext(), R.layout.item_dropdown_gametype, list)
-        binding.ddmGameType.setAdapter(adapterArray)
+//        val list = ArrayList<String>()
+//        list.add("Test Your Memory")
+//        list.add("Test Your Reflex")
+//        val adapterArray = ArrayAdapter(requireContext(), R.layout.item_dropdown_gametype, list)
+//        binding.ddmGameType.setAdapter(adapterArray)
+//
+//        binding.ddmGameType.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+//            override fun onItemSelected(
+//                parent: AdapterView<*>?,
+//                view: View?,
+//                position: Int,
+//                id: Long
+//            ) {
+//                Toast.makeText(context, "" + list[position], Toast.LENGTH_SHORT).show()
+//            }
+//            override fun onNothingSelected(parent: AdapterView<*>?) {
+//                TODO("Not yet implemented")
+//            }
+//
+//        }
 
-        binding.ddmGameType.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        val listmode =ArrayList<String>()
+        listmode.add("Test Your Memory")
+        listmode.add("Test Your Reflex")
+        val adapterArray= ArrayAdapter(requireContext(), R.layout.item_dropdown_gametype,listmode)
+        binding?.spinner?.adapter=adapterArray
+        binding?.spinner?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
-                parent: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
+                p0: AdapterView<*>?,
+                p1: View?,
+                p2: Int,
+                p3: Long
             ) {
-                Toast.makeText(context, "" + list[position], Toast.LENGTH_SHORT).show()
-            }
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-                TODO("Not yet implemented")
             }
 
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+            }
         }
+
+
+
     }
 
     private fun onClick(){
