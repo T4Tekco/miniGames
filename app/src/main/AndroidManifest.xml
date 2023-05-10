@@ -17,8 +17,10 @@
         android:theme="@style/Theme.T4tek"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+
+
         <activity
-            android:name=".app.braingame.BrainGameActivity"
+            android:name=".app.braingame.MainHomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
