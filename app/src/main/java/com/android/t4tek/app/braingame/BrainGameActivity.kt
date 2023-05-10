@@ -1,5 +1,4 @@
 package com.android.t4tek.app.braingame
-
 import android.app.AlertDialog
 import android.content.DialogInterface
 import android.os.Bundle
@@ -7,6 +6,7 @@ import androidx.navigation.NavController
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.android.t4tek.R
 import com.android.t4tek.app.base.BaseActivity
+import com.android.t4tek.app.braingame.home.HomeFragment
 import com.android.t4tek.databinding.ActivityBrainGameBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -20,11 +20,12 @@ class BrainGameActivity : BaseActivity() {
         //supportActionBar?.hide()
         binding = ActivityBrainGameBinding.inflate(layoutInflater)
         setContentView(binding?.root)
-        navController = findNav(R.id.navHostFragmentBrain)
-
+//        navController = findNav(R.id.navHostFragmentBrain)
         setSupportActionBar(binding?.toolbar)
         supportActionBar?.hide()
-        setupActionBarWithNavController(navController)
+//        setupActionBarWithNavController(navController)
+        val frmHome = HomeFragment()
+        supportFragmentManager.beginTransaction().replace(R.id.frm, frmHome).commit()
     }
 
     override fun onSupportNavigateUp(): Boolean {

@@ -1,5 +1,4 @@
 package com.android.t4tek.data.repository
-
 import com.android.t4tek.data.local.AppDatabase
 import com.android.t4tek.data.remote.ApiHelper
 import com.android.t4tek.data.remote.response.QuestionResponse
@@ -16,7 +15,7 @@ class QuestionRepositoryImpl @Inject constructor(
 ) : QuestionRepository, BaseRepository() {
     override suspend fun getQuestion(): DataResult<List<JsonQuestionListGame>> {
         try {
-            val response = apiHelper.getUsers()
+            val response = apiHelper.getQuestion()
             if(response.isSuccessful){
                 val questionResponse = response.body() as QuestionResponse
                 return DataResult.resultSuccess(questionResponse.jsonQuestionListGame)

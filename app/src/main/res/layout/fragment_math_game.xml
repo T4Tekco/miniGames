@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/xam"
+
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="5dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.337"
+        tools:ignore="MissingConstraints">
+
+
+        <TextView
+            android:id="@+id/txtnumber1"
+            android:layout_width="50dp"
+            android:layout_height="60dp"
+            android:textColor="@color/white"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:background="@drawable/custom_duongvien"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/txt_operator"
+            android:layout_width="8dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:background="@drawable/custom_duongvien"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/txtnumber2"
+            android:layout_width="40dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:background="@drawable/custom_duongvien"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/txtbang"
+            android:layout_width="10dp"
+            android:layout_height="30dp"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textSize="19sp"
+            android:layout_weight="1"
+            android:background="@drawable/custom_duongvien"
+            android:text="=" />
+
+        <TextView
+            android:id="@+id/txtkq"
+            android:layout_width="50dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:background="@drawable/custom_duongvien"
+            android:text="" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/btns1"
+                    android:layout_width="125dp"
+                    android:layout_height="30pt"
+                    android:backgroundTint="@color/black"
+                    android:text="@string/_1"
+                    android:textColor="#F6CF0C"
+                    android:textSize="30sp"
+                    tools:ignore="ButtonStyle">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/btns2"
+                    android:layout_width="127dp"
+                    android:layout_height="30pt"
+                    android:backgroundTint="@color/black"
+                    android:text="@string/_2"
+                    android:textColor="#F6CF0C"
+                    android:textSize="30sp"
+                    tools:ignore="ButtonStyle" />
+
+                <Button
+                    android:id="@+id/btn_number3"
+                    android:layout_width="130dp"
+                    android:layout_height="30pt"
+                    android:backgroundTint="@color/black"
+                    android:text="3"
+                    android:textColor="#F6CF0C"
+                    android:textSize="30sp">
+
+                </Button>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/btn_number4"
+                    android:layout_width="50pt"
+                    android:layout_height="30pt"
+                    android:backgroundTint="@color/black"
+                    android:text="@string/_4"
+                    android:textColor="#F6CF0C"
+                    android:textSize="30sp" />
+
+                <Button
+                    android:id="@+id/btns5"
+                    android:layout_width="30pt"
+                    android:layout_height="30pt"
+                    android:backgroundTint="@color/black"
+                    android:text="@string/_5"
+                    android:textColor="#F6CF0C"
+                    android:textSize="30sp" />
+
+                <Button
+                    android:id="@+id/btns6"
+                    android:layout_width="138dp"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="@color/black"
+                    android:text="@string/_6"
+                    android:textColor="#F6CF0C"
+                    android:textSize="30sp" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/btns7"
+                    android:layout_width="30pt"
+                    android:layout_height="30pt"
+                    android:backgroundTint="@color/black"
+                    android:text="@string/_7"
+                    android:textColor="#F6CF0C"
+                    android:textSize="30sp" />
+
+                <Button
+                    android:id="@+id/btns8"
+                    android:layout_width="30pt"
+                    android:layout_height="30pt"
+                    android:backgroundTint="@color/black"
+                    android:text="@string/_8"
+                    android:textColor="#F6CF0C"
+                    android:textSize="30sp" />
+
+                <Button
+                    android:id="@+id/btns9"
+                    android:layout_width="50pt"
+                    android:layout_height="30pt"
+                    android:backgroundTint="@color/black"
+                    android:text="@string/_9"
+                    android:textColor="#F6CF0C"
+                    android:textSize="30sp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <Button
+                    android:id="@+id/btnDel"
+                    android:layout_width="30pt"
+                    android:layout_height="30pt"
+                    android:backgroundTint="@color/black"
+                    android:text="@string/del"
+                    android:textColor="#F6CF0C"
+                    android:textSize="30sp" />
+
+                <Button
+                    android:id="@+id/btns0"
+                    android:layout_width="0pt"
+                    android:layout_height="30pt"
+                    android:backgroundTint="@color/black"
+                    android:text="0"
+                    android:textColor="#F6CF0C"
+                    android:textSize="30sp" />
+
+                <Button
+                    android:id="@+id/btnOK"
+                    android:layout_width="50pt"
+                    android:layout_height="30pt"
+                    android:backgroundTint="@color/black"
+                    android:text="@string/ok"
+                    android:textColor="#F6CF0C"
+                    android:textSize="30sp">
+
+                </Button>
+            </TableRow>
+        </TableLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="407dp"
+        android:layout_height="132dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/vienbutton"
+            android:layout_marginBottom="30dp">
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="90dp"
+                android:layout_height="34dp"
+                android:backgroundTint="@color/black">
+
+            </Spinner>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnTimer"
+            android:layout_width="113dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/vienbutton"
+            android:text=""
+           >
+
+        </Button>
+
+        <Button
+            android:id="@+id/btnReset"
+            android:layout_width="113dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/vienbutton"
+            android:text="@string/retry"
+            tools:ignore="MissingConstraints,PrivateResource">
+
+        </Button>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
