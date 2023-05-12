@@ -2,6 +2,7 @@ package com.android.t4tek.data.remote
 
 
 import androidx.annotation.WorkerThread
+import com.android.t4tek.data.remote.response.JsonListGame
 import com.android.t4tek.data.remote.response.PeopleResponse
 import com.android.t4tek.data.remote.response.QuestionResponse
 import com.android.utils.NetworkHelper
@@ -46,6 +47,10 @@ class ApiHelperImpl @Inject constructor(
 
     override suspend fun getQuestion(): Response<QuestionResponse> {
             return safeApiCall { apiService.getQuestion() }
+    }
+
+    override suspend fun getListGame(): Response<JsonListGame> {
+        return safeApiCall { apiService.getListGame() }
     }
 
 }

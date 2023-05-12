@@ -9,12 +9,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.android.t4tek.R
 import com.android.t4tek.databinding.FragmentMathGameBinding
-import com.android.t4tek.domain.json_model.JsonQuestionListGame
 import com.android.t4tek.domain.json_model.QuestionList
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -39,7 +37,7 @@ class MathGameFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentMathGameBinding.bind(view)
 
-        var currentPosition = 1 // vị trí hiện tại của câu hỏi trong JSON
+        var currentPosition = 0 // vị trí hiện tại của câu hỏi trong JSON
         var questionList: QuestionList? = null // danh sách câu hỏi lấy từ JSON
         val client = OkHttpClient.Builder().build()
         val request = Request.Builder()
@@ -66,7 +64,7 @@ class MathGameFragment : Fragment() {
                         idList.add(q.id.toString())
                     }
                 }
-
+//ar kq = []
 
                 activity?.runOnUiThread{
                    binding?.txtnumber1?.text = questionList!!.questions[0].list_question[currentPosition].number_1.toString()
@@ -76,7 +74,9 @@ class MathGameFragment : Fragment() {
                 binding?.btnOK?.setOnClickListener {
                     currentPosition++
                 // tăng vị trí hiện tại lên 1 để lấy câu hỏi tiếp theo trong JSON
-                    if (questionList!!.questions[0].list_question[currentPosition].id == currentPosition+1) {
+                    if (currentPosition < questionList!!.questions[0].list_question.size &&
+                        questionList!!.questions[0].list_question[currentPosition].id == currentPosition+1)
+                        {
                         binding?.txtnumber1?.text =
                             questionList!!.questions[0].list_question[currentPosition].number_1.toString()
                         binding?.txtOperator?.text =
@@ -86,7 +86,8 @@ class MathGameFragment : Fragment() {
                     }
 //                    // Gửi lại request để lấy JSON mới nếu đã lấy hết các câu hỏi trong JSON
                     if (currentPosition >= questionList!!.questions[0].list_question.size) {
-                        currentPosition = 1 // trở lại câu hỏi đầu tiên
+                        currentPosition = 0 // trở lại câu hỏi đầu tiên
+
                         Toast.makeText(requireContext(), "Đã lấy hết dữ liệu từ JSON", Toast.LENGTH_SHORT).show()
                     }
 
@@ -105,12 +106,16 @@ class MathGameFragment : Fragment() {
         setSpinner()
         onClick()
         startCountDown()
+        resetScreen()
     }
 
     private fun resetScreen() {
-        binding?.txtnumber1?.text = null
-        binding?.txtnumber2?.text = null
-        binding?.txtkq?.text = null
+        binding?.btnReset?.setOnClickListener {
+            binding?.txtnumber1?.text = null
+            binding?.txtnumber2?.text = null
+            binding?.btnTimer?.text = null
+            binding?.txtkq?.text = null
+        }
     }
 
     private fun startCountDown() {

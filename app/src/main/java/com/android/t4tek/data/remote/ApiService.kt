@@ -1,5 +1,6 @@
 package com.android.t4tek.data.remote
 
+import com.android.t4tek.data.remote.response.JsonListGame
 import com.android.t4tek.data.remote.response.PeopleResponse
 import com.android.t4tek.data.remote.response.QuestionResponse
 import retrofit2.Response
@@ -11,4 +12,8 @@ interface ApiService {
 
     @GET("question.json")
     suspend fun getQuestion(): Response<QuestionResponse>
+
+    @GET("list_game.json")
+    suspend fun getListGame(): Response<JsonListGame>
+
 }

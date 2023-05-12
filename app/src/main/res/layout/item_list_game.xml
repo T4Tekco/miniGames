@@ -45,11 +45,12 @@
             android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
+
             <ImageView
                 android:id="@+id/starOne"
-                android:src="@drawable/baseline_star_border_24_black"
-                android:layout_width="40dp"
-                android:layout_height="40dp"/>
+                android:layout_width="47dp"
+                android:layout_height="40dp"
+                android:src="@drawable/baseline_star_border_24_black" />
             <ImageView
                 android:id="@+id/starTwo"
                 android:src="@drawable/baseline_star_border_24_black"
