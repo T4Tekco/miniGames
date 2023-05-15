@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import com.android.t4tek.R
 
 class ListRSFragment : Fragment() {
@@ -12,15 +13,14 @@ class ListRSFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_list_r_s, container, false)
+        val view= inflater.inflate(R.layout.fragment_list_r_s, container, false)
+        return view
     }
 
 

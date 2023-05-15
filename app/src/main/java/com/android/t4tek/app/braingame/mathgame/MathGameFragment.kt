@@ -4,6 +4,7 @@ package com.android.t4tek.app.braingame.mathgame
 
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +12,11 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.android.t4tek.R
+import com.android.t4tek.app.braingame.interfacee.Communitor
+import com.android.t4tek.app.braingame.listresult.ListRSFragment
+import com.android.t4tek.app.braingame.model.ListGame
 import com.android.t4tek.databinding.FragmentMathGameBinding
 import com.android.t4tek.domain.json_model.QuestionList
 import com.squareup.moshi.Moshi
@@ -23,13 +28,15 @@ class MathGameFragment : Fragment() {
     private var binding: FragmentMathGameBinding? = null
     private lateinit var countDownTimer: CountDownTimer
     private var timeLeftInMillis: Long = 60000 // 1 minute
-
+    private lateinit var listgame: ListGame
+//    private lateinit var communitor: Communitor
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentMathGameBinding.inflate(inflater, container, false)
+//        communitor= requireActivity() as Communitor
         return binding?.root
     }
 
@@ -37,6 +44,8 @@ class MathGameFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentMathGameBinding.bind(view)
 
+        val listkq = ArrayList<String>()
+        var correct =0
         var currentPosition = 0 // vị trí hiện tại của câu hỏi trong JSON
         var questionList: QuestionList? = null // danh sách câu hỏi lấy từ JSON
         val client = OkHttpClient.Builder().build()
@@ -72,6 +81,16 @@ class MathGameFragment : Fragment() {
                    binding?.txtnumber2?.text =  questionList!!.questions[0].list_question[currentPosition].number_2.toString()
                }
                 binding?.btnOK?.setOnClickListener {
+                    listkq.add(currentPosition,binding?.txtkq?.text.toString())
+                    Log.println(currentPosition,binding?.txtkq?.text.toString(),"")
+                    if(binding?.txtkq?.text == questionList!!.questions[0].list_question[currentPosition].result.toString())
+                    {
+                        Toast.makeText(context,"Đúng rồi",Toast.LENGTH_SHORT).show()
+                        correct++
+                    }else
+                    {
+                        Toast.makeText(context,"Sai rồi",Toast.LENGTH_SHORT).show()
+                    }
                     currentPosition++
                 // tăng vị trí hiện tại lên 1 để lấy câu hỏi tiếp theo trong JSON
                     if (currentPosition < questionList!!.questions[0].list_question.size &&
@@ -81,15 +100,35 @@ class MathGameFragment : Fragment() {
                             questionList!!.questions[0].list_question[currentPosition].number_1.toString()
                         binding?.txtOperator?.text =
                             questionList!!.questions[0].list_question[currentPosition].operator
-                        binding?.txtnumber2?.text =
-                            questionList!!.questions[0].list_question[currentPosition].number_2.toString()
-                    }
+                        binding?.txtnumber2?.text = questionList!!.questions[0].list_question[currentPosition].number_2.toString()
+
+                        }
+                    Log.println(currentPosition,correct.toString(),"")
 //                    // Gửi lại request để lấy JSON mới nếu đã lấy hết các câu hỏi trong JSON
                     if (currentPosition >= questionList!!.questions[0].list_question.size) {
                         currentPosition = 0 // trở lại câu hỏi đầu tiên
+                        Toast.makeText(context,correct,Toast.LENGTH_LONG).show()
+//                        communitor.passcr(correct.toString())
+//
 
-                        Toast.makeText(requireContext(), "Đã lấy hết dữ liệu từ JSON", Toast.LENGTH_SHORT).show()
+                        val bundle= Bundle()
+                        bundle.putString("correct", correct.toString())
+
+//                        val a = correct.toString()
+//                        val bundle = Bundle()
+//                        bundle.putString("data", a)
+//                        val frm = ListRSFragment()
+//                        frm.arguments = bundle
+//                        fragmentManager?.beginTransaction()?.replace(R.id.mathGameFragment, frm)?.commit()
+                        Toast.makeText(requireContext(), "Đã lấy hết dữ liệu từ JSON",Toast.LENGTH_SHORT).show()
+
+                        findNavController().navigate(R.id.action_mathGameFragment_to_resultFragment)
+                        //startActivity(Intent(requireContext(), BrainGameActivity::class.java))
+                        // hiden the dialog after navigation
                     }
+
+
+
 
 
                     // Lấy câu hỏi từ JSON bằng cách sử dụng biến currentPosition
